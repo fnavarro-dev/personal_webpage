@@ -1,0 +1,136 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Navarro Development Blog
+  </title>
+  <!-- Instalar temporalmente Tailwind CSS, hay que compilar al final para mejorar el rendimiento -->
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <!-- Instalar fuentes e iconos -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Orbitron:wght@700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  
+<!-- PDF.js Librería -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<!-- PDF.js Worker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<!-- CSS para el visor de PDF.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf_viewer.min.css" />
+
+
+  <!-- Archivo CSS -->
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+  </style>
+</head>
+
+
+<!-- ----------------------------------------------------------------
+navbar y titulo
+---------------------------------------------------------------- -->
+
+
+ <body class="bg-white text-black">
+  <header class="bg-black text-white border-b border-gray-800">
+
+   <div class="container mx-auto flex justify-between items-center py-3">
+    
+    <div class="flex justify-center items-center w-full py-2">
+        <div class="text-4xl font-bold orbitron text-center">
+          NAVARRO DEVELOPMENT BLOG
+        </div>
+      </div>
+<!--     Barra busqueda
+    <div class="relative">
+     <input class="h-10 bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none" placeholder="Search" type="text"/>
+     <button class="absolute right-0 top-0 mt-3 mr-2">
+      <i class="fas fa-search text-white">
+      </i>
+     </button>
+    </div> -->
+</div>
+
+<!-- Iconos sociales -->   
+<div class="flex justify-center items-center w-full">
+    <a class="text-white text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="#">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a class="text-white text-lg ml-4 hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="#">
+      <i class="fas fa-headphones"></i>
+    </a>
+    <a class="text-white text-lg ml-4 hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="#">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+  
+<!-- Menu Links -->
+   <nav class="container mx-auto flex justify-center py-4 border-b border-gray-700">
+    <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="#">Inicio</a>
+    <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="#">Contacto y CV</a>
+    <a class="text-white px-4 py-2 hover:text-yellow-100 600transition duration-300 ease-in-out" href="#">Proyectos</a>
+    <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="./Inspiracion.html">Inspiración</a>
+  </nav>
+  
+  </header>
+
+<!-- ----------------------------------------------------------------
+secccion curriculum vitae resume
+---------------------------------------------------------------- -->
+
+
+<div id="viewerContainer" style="width: 100%; height: 600px;">
+    <div id="viewer" class="pdfViewer"></div>
+</div>
+  
+  <script>
+    // Debido a que estamos usando módulos ES, definimos una función asíncrona para cargar nuestro PDF
+    (async () => {
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        // Establece el contenedor y el visor del PDF
+        const container = document.getElementById('viewerContainer');
+        const eventBus = new pdfjsViewer.EventBus();
+
+        const pdfViewer = new pdfjsViewer.PDFViewer({
+            container: container,
+            eventBus: eventBus,
+        });
+
+        // Escucha el evento 'pagesinit' para ajustar la escala inicial del PDF
+        eventBus.on('pagesinit', () => {
+            pdfViewer.currentScaleValue = 'page-width';
+        });
+
+        // Carga el documento PDF especificado
+        const loadingTask = pdfjsLib.getDocument('./cv_francisco_navarro.pdf');
+        const pdfDocument = await loadingTask.promise;
+
+        // Asigna el documento PDF cargado al visor
+        pdfViewer.setDocument(pdfDocument);
+
+        // Si necesitas que el contenedor del visor tenga barras de desplazamiento
+        document.getElementById('viewer').style.overflow = 'auto';
+    })();
+</script>
+  
+
+<!-- ----------------------------------------------------------------
+footer
+---------------------------------------------------------------- -->
+
+
+  <footer class="border-t border-gray-800 py-4 text-center">
+   <p>
+    © 2023 Navarro Development Blog. All rights reserved.
+   </p>
+  </footer>
+ </body>
+</html>
