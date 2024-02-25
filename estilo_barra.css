@@ -1,0 +1,25 @@
+/* Estilo global */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2D2D2D; /* Color de fondo de la pista más oscuro */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #444; /* Color de la barra de desplazamiento más claro */
+    border-radius: 6px; /* Bordes redondeados para el thumb */
+  }
+  
+  /* Hover sobre la barra de desplazamiento */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color al pasar el mouse, un poco más claro */
+  }
+  
+  /* Estilo para Firefox */
+  * {
+    scrollbar-width: thin; /* "auto" o "thin" para un aspecto más delgado */
+    scrollbar-color: #444 #2D2D2D; /* Adaptamos los colores para Firefox */
+  }
+  

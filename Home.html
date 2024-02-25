@@ -11,7 +11,8 @@
   <!-- Instalar fuentes e iconos -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Orbitron:wght@700&amp;display=swap" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  
+  <!-- Instalar CSS personalizado -->
+  <link href="./estilo_barra.css"  rel="stylesheet" />
   <!-- Archivo CSS -->
   <style>
    body {
@@ -29,50 +30,46 @@ navbar y titulo
 ---------------------------------------------------------------- -->
 
 
- <body class="bg-white text-black">
+ <body class="bg-white text-black overflow-y-scroll">
   <header class="bg-black text-white border-b border-gray-800">
 
-   <div class="container mx-auto flex justify-between items-center py-3">
-    
     <div class="flex justify-center items-center w-full py-2">
-        <div class="text-4xl font-bold orbitron text-center">
-          NAVARRO DEVELOPMENT BLOG
-          <p class="text-xl text-gray-400">Desarrollador FullStack</p>
-        </div>
+      <div class="text-4xl font-bold orbitron text-center">
+        NAVARRO DEVELOPMENT BLOG
+        <p class="text-xl text-gray-400">Desarrollador FullStack</p>
       </div>
+    </div>
 <!--     Barra busqueda
-    <div class="relative">
-     <input class="h-10 bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none" placeholder="Search" type="text"/>
-     <button class="absolute right-0 top-0 mt-3 mr-2">
-      <i class="fas fa-search text-white">
-      </i>
-     </button>
-    </div> -->
+  <div class="relative">
+   <input class="h-10 bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none" placeholder="Search" type="text"/>
+   <button class="absolute right-0 top-0 mt-3 mr-2">
+    <i class="fas fa-search text-white">
+    </i>
+   </button>
+  </div> -->
 </div>
+  
+  
 
 <!-- Iconos sociales -->   
 <div class="flex justify-center items-center w-full">
-  <a class="text-white text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="https://www.linkedin.com/in/francisco-navarro-flores/" target="_blank">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  
-  <a class="text-white text-lg ml-4 hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="https://github.com/fnavarro-dev" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
-  
-    
-    <a class="text-white text-lg ml-4 hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="mailto:francisconavarroflores@gmail.com">
+    <a class="text-white text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="#">
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a class="text-white text-lg ml-4 hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="#">
+      <i class="fab fa-github"></i>
+    </a>    
+    <a class="text-white text-lg ml-4 hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out" href="#">
       <i class="fas fa-envelope"></i>
     </a>
-    
   </div>
   
 <!-- Menu Links -->
    <nav class="container mx-auto flex justify-center py-4 border-b border-gray-700">
     <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="./home.html">Inicio</a>
     <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="./resume.html">Contacto y CV</a>
-    <a class="text-white px-4 py-2 hover:text-yellow-100 600transition duration-300 ease-in-out" href="./home copy.html">Proyectos</a>
-    <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="./Inspiracion.html">Inspiración</a>
+    <a class="text-white px-4 py-2 hover:text-yellow-100 600transition duration-300 ease-in-out" href="#">Proyectos</a>
+    <a class="text-white px-4 py-2 hover:text-yellow-100 transition duration-300 ease-in-out" href="./Inspiracion.html">Motivación</a>
   </nav>
   
   </header>
