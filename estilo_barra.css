@@ -22,4 +22,10 @@
     scrollbar-width: thin; /* "auto" o "thin" para un aspecto más delgado */
     scrollbar-color: #444 #2D2D2D; /* Adaptamos los colores para Firefox */
   }
+
   
+  /* Desplazamiento suave */
+
+  html {
+    scroll-behavior: smooth;
+  }

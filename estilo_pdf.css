@@ -1,0 +1,11 @@
+.pdf-moderno {
+    margin: auto;
+    display: block;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    overflow: hidden; /* Intenta ocultar las barras de desplazamiento, pero depende del visor de PDF */
+    width: 100%; /* Ajusta al ancho disponible */
+    max-width: 800px; /* Máximo ancho */
+    height: auto; /* Altura automática */
+    aspect-ratio: 1 / 1.4142; /* Proporción de tamaño A4 */
+  }
