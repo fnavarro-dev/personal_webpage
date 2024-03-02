@@ -6,13 +6,18 @@
   <title>
     Navarro Development Blog
   </title>
-  <!-- Instalar temporalmente Tailwind CSS, hay que compilar al final para mejorar el rendimiento -->
-  <script src="https://cdn.tailwindcss.com">
-  </script>
+  <!-- Instalar temporalmente Tailwind CSS, hay que compilar al final para mejorar el rendimiento 
+  <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- Instalar fuentes e iconos -->
   <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;fami:wght@700&amp;display=swaprbitron:wght@700&amp;display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
- --> <!-- Instalar CSS personalizado -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/> --> 
+  <!-- Instalar Tailwind CSS cocinado para producción (dev o min) -->
+  <link href="./tw_style_dev.css" rel="stylesheet" />
+<!--   Para cocinar la version dev con comando watch que detcta los cambios mientras desarrollas
+  npx tailwindcss -i tw_style_start.css -o tw_style_dev.css --watch
+  Para cocinar la version min final para disminuir el tamaño al mínimo
+  npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify -->
+  <!-- Instalar CSS clásico para la barra de desplazamiento -->
   <link href="./estilo_barra.css" rel="stylesheet" />
   <!-- Archivo CSS -->
   <style>
