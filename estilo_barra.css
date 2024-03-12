@@ -1,31 +1,34 @@
-/* Estilo global */
-::-webkit-scrollbar {
-    width: 12px; /* Ancho de la barra de desplazamiento */
+/* Desplazamiento suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Media Query para aplicar estilos solo en desktop */
+@media (hover: hover) {
+  /* Estilo global para personalizar la barra de desplazamiento en desktop */
+  ::-webkit-scrollbar {
+      width: 12px; /* Ancho de la barra de desplazamiento */
   }
   
   ::-webkit-scrollbar-track {
-    background: #2D2D2D; /* Color de fondo de la pista más oscuro */
+      background: #2D2D2D; /* Color de fondo de la pista */
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #444; /* Color de la barra de desplazamiento más claro */
-    border-radius: 6px; /* Bordes redondeados para el thumb */
+      background: #444; /* Color de la barra de desplazamiento */
+      border-radius: 6px; /* Bordes redondeados para el thumb */
   }
   
   /* Hover sobre la barra de desplazamiento */
   ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color al pasar el mouse, un poco más claro */
+      background: #555; /* Color al pasar el mouse */
   }
   
   /* Estilo para Firefox */
   * {
-    scrollbar-width: thin; /* "auto" o "thin" para un aspecto más delgado */
-    scrollbar-color: #444 #2D2D2D; /* Adaptamos los colores para Firefox */
+      scrollbar-width: thin; /* Aspecto más delgado para la barra de desplazamiento */
+      scrollbar-color: #444 #2D2D2D; /* Colores para la barra y la pista */
   }
+}
 
-  
-  /* Desplazamiento suave */
 
-  html {
-    scroll-behavior: smooth;
-  }

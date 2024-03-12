@@ -6,6 +6,11 @@
   <title>
     Navarro Development Blog
   </title>
+  <link rel="icon" href="./images/shibagod.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./images/shibagod.ico" type="image/x-icon">
+  <!-- PDF.js -->
+  <script src="./js/pdf.min.js"></script>
+  <script src="./js/pdf.worker.min.js"></script>
   <!-- Instalar temporalmente Tailwind CSS, hay que compilar al final para mejorar el rendimiento 
   <script src="https://cdn.tailwindcss.com"></script> -->
   <!-- Instalar fuentes e iconos -->
@@ -60,7 +65,7 @@ navbar y titulo
 ---------------------------------------------------------------- -->
 
 
-<body class="bg-white text-black overflow-y-scroll">
+<body class="bg-gray-100 text-black overflow-y-scroll">
   <header class="bg-black text-white border-b border-gray-800">
 
     <div class="flex justify-center items-center w-full py-2">
@@ -139,11 +144,52 @@ seccion curriculum
   </h2>
 </div>
 
-
+<!-- Visor Desktop -->
 
    <div>
-    <iframe src="./cv_francisco_navarro.pdf#toolbar=0&navpanes=0" width="800" height="1050" class="pdf-moderno"></iframe>
-   </div>
+    <iframe src="./cv_francisco_navarro.pdf#toolbar=0&navpanes=0" width="800" height="1050" class="pdf-moderno visor-desktop"></iframe>
+   </div> 
+
+<!-- Visor para móviles -->
+
+<div id="pdf-canvas-container" class="pdf-moderno visor-mobile"></div>
+
+<script>
+  // Asumiendo que pdfjsLib ya está definido e inicializado
+  pdfjsLib.getDocument('./cv_francisco_navarro.pdf').promise.then(function(pdfDoc) {
+      pdfDoc.getPage(1).then(function(page) {
+          var container = document.getElementById('pdf-canvas-container');
+
+          // Obten las dimensiones del contenedor
+          var containerWidth = container.clientWidth;
+
+          // Calcula la escala basada en el ancho del contenedor y el ancho del PDF
+          var scale = containerWidth / page.getViewport({scale: 1.0}).width;
+          scale *= 8;
+          var viewport = page.getViewport({scale: scale});
+
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          
+          // Ajusta el tamaño del canvas mediante CSS para asegurar que se ajuste al contenedor
+          canvas.style.width = "100%";
+          canvas.style.height = "auto";
+
+          container.appendChild(canvas);
+
+          var renderContext = {
+              canvasContext: ctx,
+              viewport: viewport
+          };
+
+          // Renderiza la página PDF
+          page.render(renderContext);
+      });
+  });
+</script> 
 
 
 <!-- ----------------------------------------------------------------
@@ -153,10 +199,9 @@ footer nuevo
 
 <footer class="py-8 text-center" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
   <div style="display: flex; align-items: center; justify-content: center; text-align: center;">
-    <a href="http://creativecommons.org/licenses/by/4.0/" style="display: inline-flex; align-items: center;">
-      <i class="fab fa-creative-commons" aria-hidden="true"></i>
+    <div style="display: inline-flex; align-items: center;">
       <span style="padding-left: 8px;">Navarro Development Blog - 2024</span>
-    </a>
+    </div>
   </div>
 </footer>
 <!-- ----------------------------------------------------------------
