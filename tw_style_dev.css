@@ -598,20 +598,12 @@ video {
   position: relative;
 }
 
-.right-0 {
-  right: 0px;
+.left-0 {
+  left: 0px;
 }
 
 .top-0 {
   top: 0px;
-}
-
-.bottom-0 {
-  bottom: 0px;
-}
-
-.left-0 {
-  left: 0px;
 }
 
 .-mx-4 {
@@ -641,24 +633,12 @@ video {
   margin-bottom: 2rem;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
 .mr-4 {
   margin-right: 1rem;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .block {
@@ -671,10 +651,6 @@ video {
 
 .hidden {
   display: none;
-}
-
-.h-10 {
-  height: 2.5rem;
 }
 
 .h-20 {
@@ -705,48 +681,8 @@ video {
   height: 100%;
 }
 
-.h-\[9\.375rem\] {
-  height: 9.375rem;
-}
-
-.h-\[9rem\] {
-  height: 9rem;
-}
-
-.h-\[h-\[150px\]\] {
-  height: h-[150px];
-}
-
 .max-h-\[150px\] {
   max-height: 150px;
-}
-
-.max-h-\[2rem\] {
-  max-height: 2rem;
-}
-
-.min-h-\[\] {
-  min-height: ;
-}
-
-.min-h-\[2rem\] {
-  min-height: 2rem;
-}
-
-.min-h-\[3rem\] {
-  min-height: 3rem;
-}
-
-.min-h-\[rem\] {
-  min-height: rem;
-}
-
-.min-h-\[50px\] {
-  min-height: 50px;
-}
-
-.min-h-\[w-1\/2\] {
-  min-height: w-1/2;
 }
 
 .w-1\/2 {
@@ -767,18 +703,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[9\.375rem\] {
-  width: 9.375rem;
-}
-
-.w-\[150px\] {
-  width: 150px;
-}
-
-.w-\[h-\[150px\]\] {
-  width: h-[150px];
 }
 
 .transform {
@@ -874,6 +798,11 @@ video {
   padding-right: 0.5rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -907,6 +836,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pb-\[33\.3333\%\] {
+  padding-bottom: 33.3333%;
+}
+
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -921,14 +854,6 @@ video {
 
 .pr-8 {
   padding-right: 2rem;
-}
-
-.pb-\[100\%\] {
-  padding-bottom: 100%;
-}
-
-.pb-\[33\.3333\%\] {
-  padding-bottom: 33.3333%;
 }
 
 .text-center {
@@ -958,11 +883,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 
 .text-xs {
@@ -1068,11 +988,6 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
   color: rgb(254 240 138 / var(--tw-text-opacity));
 }
 
-.focus\:outline-none:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
 @media (min-width: 640px) {
   .sm\:px-16 {
     padding-left: 4rem;
@@ -1083,10 +998,6 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
 @media (min-width: 768px) {
   .md\:visible {
     visibility: visible;
-  }
-
-  .md\:relative {
-    position: relative;
   }
 
   .md\:mb-0 {
@@ -1105,10 +1016,6 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
     margin-top: 2rem;
   }
 
-  .md\:mt-0 {
-    margin-top: 0px;
-  }
-
   .md\:block {
     display: block;
   }
@@ -1121,40 +1028,8 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
     display: none;
   }
 
-  .md\:h-\[30vh\] {
-    height: 30vh;
-  }
-
-  .md\:h-\[150px\] {
-    height: 150px;
-  }
-
-  .md\:h-full {
-    height: 100%;
-  }
-
-  .md\:h-\[9\.375rem\] {
-    height: 9.375rem;
-  }
-
-  .md\:h-\[9rem\] {
-    height: 9rem;
-  }
-
-  .md\:h-\[20vh\] {
-    height: 20vh;
-  }
-
-  .md\:h-\[18vh\] {
-    height: 18vh;
-  }
-
   .md\:h-\[17vh\] {
     height: 17vh;
-  }
-
-  .md\:max-h-\[150px\] {
-    max-height: 150px;
   }
 
   .md\:w-1\/2 {
@@ -1185,8 +1060,9 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
     flex-direction: row;
   }
 
-  .md\:justify-between {
-    justify-content: space-between;
+  .md\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   .md\:px-24 {
@@ -1203,6 +1079,10 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
     padding-bottom: 0px;
   }
 
+  .md\:pb-\[50\%\] {
+    padding-bottom: 50%;
+  }
+
   .md\:pl-4 {
     padding-left: 1rem;
   }
@@ -1211,8 +1091,9 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
     padding-right: 1rem;
   }
 
-  .md\:pb-\[50\%\] {
-    padding-bottom: 50%;
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 
   .md\:text-4xl {
@@ -1220,49 +1101,24 @@ npx tailwindcss -i tw_style_start.css -o tw_style_min.css --minify
     line-height: 2.5rem;
   }
 
-  .md\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
   .md\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
   }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
-  .lg\:flex {
-    display: flex;
-  }
-
-  .lg\:hidden {
-    display: none;
-  }
-
-  .lg\:h-\[30vh\] {
-    height: 30vh;
-  }
-
   .lg\:h-\[22vh\] {
     height: 22vh;
   }
 
   .lg\:w-1\/3 {
     width: 33.333333%;
-  }
-
-  .lg\:justify-center {
-    justify-content: center;
-  }
-
-  .lg\:justify-between {
-    justify-content: space-between;
   }
 }
 

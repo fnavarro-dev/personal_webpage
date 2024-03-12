@@ -65,8 +65,8 @@ navbar y titulo
   <header class="bg-black text-white border-b border-gray-800">
 
     <div class="flex justify-center items-center w-full py-2">
-      <div class="text-4xl font-bold orbitron text-center">
-        NAVARRO DEVELOPMENT BLOG
+      <div class="text-3xl md:text-4xl font-bold orbitron text-center">
+        <a href="./home.html">NAVARRO DEVELOPMENT BLOG</a>
         <p class="text-xl text-gray-400">Desarrollador FullStack</p>
       </div>
     </div>
@@ -76,7 +76,7 @@ navbar y titulo
 
     <!-- Iconos sociales -->
     <div class="flex justify-center items-center w-full">
-      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-2"
+      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-3 md:px-2"
         href="https://www.linkedin.com/in/francisconavarroflores/" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 1.150rem; height: 1.150rem;">
           <path
@@ -85,7 +85,7 @@ navbar y titulo
       </a>
 
 
-      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-2"
+      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-3 md:px-2"
         href="https://github.com/fnavarro-dev" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" style="width: 1.150rem; height: 1.150rem;">
           <path
@@ -93,7 +93,7 @@ navbar y titulo
         </svg>
       </a>
 
-      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-2"
+      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-3 md:px-2"
         href="mailto:francisconavarroflores@gmail.com">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 1.150rem; height: 1.150rem;">
           <path
@@ -102,19 +102,38 @@ navbar y titulo
       </a>
     </div>
 
-    <!-- Menu Links -->
-    <nav class="block text-center container mx-auto flex justify-center py-3 border-b border-gray-700">
-      <a class="text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-        href="./home.html">Inicio</a>
-      <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-        href="./resume.html">Contacto y CV</a>
-      <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 600transition duration-300 ease-in-out"
-        href="./projects.html">Proyectos</a>
-      <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-        href="./inspiracion.html">Inspiración</a>
-    </nav>
+<!-- Menu Links -->
+<nav class="container mx-auto flex-wrap justify-between items-center py-3 border-b border-gray-700">
+  <!-- Botón visible solo en móvil -->
+  <button class="flex items-center justify-center w-full px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out md:hidden" id="menu-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 1.150rem; height: 1.150rem;">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+  
+  <!-- Enlaces del menú -->
+  <!-- En móviles se oculta, y en escritorio se muestra -->
+  <div class="hidden md:flex w-full justify-center" id="menu-links">
+    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
+      href="./home.html">Inicio</a>
+    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
+      href="./resume.html">Contacto y CV</a>
+    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
+      href="./projects.html">Proyectos</a>
+    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
+      href="./inspiracion.html">Inspiración</a>
+  </div>
+</nav>
+<script>
+  document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('menu-links').classList.toggle('hidden');
+  });
+</script>
+
+
 
   </header>
+
   <main class="container mx-auto mt-8">
     <h2 class="text-3xl font-bold orbitron mb-8">
       INSPIRACIÓN
