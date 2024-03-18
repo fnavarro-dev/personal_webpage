@@ -111,24 +111,24 @@ navbar y titulo
     </svg>
   </button>
   
-  <!-- Enlaces del menú -->
-  <!-- En móviles se oculta, y en escritorio se muestra -->
-  <div class="hidden md:flex w-full justify-center" id="menu-links">
-    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-      href="./home.html">Inicio</a>
-    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-      href="./resume.html">Contacto y CV</a>
-    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-      href="./projects.html">Proyectos</a>
-    <a class="block text-center text-white px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out"
-      href="./inspiracion.html">Inspiración</a>
-  </div>
-</nav>
-<script>
-  document.getElementById('menu-btn').addEventListener('click', function() {
-    document.getElementById('menu-links').classList.toggle('hidden');
-  });
-</script>
+      <!-- Enlaces del menú -->
+      <!-- En móviles se oculta, y en escritorio se muestra -->
+      <div class="hidden md:flex w-full justify-center" id="menu-links">
+        <a class="block text-center text-white px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-orange-500"
+        href="./home.html">Inicio</a>
+        <a class="block text-center text-white px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-orange-500"
+          href="./resume.html">Contacto y CV</a>
+          <a class="block text-center text-white px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-orange-500"
+          href="./projects.html">Proyectos</a>
+          <a class="bg-orange-600  block text-center text-white px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-orange-500"
+          href="./inspiracion.html">Inspiración</a>
+      </div>
+    </nav>
+    <script>
+      document.getElementById('menu-btn').addEventListener('click', function () {
+        document.getElementById('menu-links').classList.toggle('hidden');
+      });
+    </script>
 
 
 
