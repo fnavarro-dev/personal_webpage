@@ -54,9 +54,7 @@
       fill: #bec1c4;
       /* Color al hacer hover, usando el color 'gray-500' de Tailwind como ejemplo */
     }
-    .privacyPolicy {
-  visibility: hidden !important;
-}
+    
 
   </style>
 </head>
@@ -233,7 +231,7 @@ function toggleDesktopAbout() {
 <!-- ----------------------------------------------------------------
 main body
 ---------------------------------------------------------------- -->
-  <main class="shadow-sm pb-8 sm:px-16 md:px-24 xl:px-48 2xl:px-64">
+  <main class="shadow-sm pb-8 sm:px-16 md:px-24 xl:px-48 2xl:px-52 3xl:px-64">
     <div class="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4">
       <!-- Secciones irán aquí -->
     
@@ -253,7 +251,7 @@ seccion experiencia
       </div>
       <div class="bg-gray-100 flex flex-wrap md:flex-row justify-between sm:pt-0 md:pt-8 lg:pt-0">
 
-        <div class="sm:w-full md:w-2/3 lg:w-full px-4">
+        <div class="sm:w-full md:w-2/3 lg:w-full px-4 lg:px-0">
 
           <h2 class="text-3xl font-bold orbitron mb-8 pl-2">
             EXPERIENCIA
@@ -266,40 +264,58 @@ seccion experiencia
               <a href="./posts/experiencia-entel.html">
                 <div class="mb-8">
                   <!-- Contenedor para controlar el tamaño y la respuesta de la imagen -->
-                  <div class="w-1/2 md:w-1/2 relative pb-[50%] md:pb-[50%] bg-gray-100">
+                  <div class="w-full md:w-1/2 lg:w-full relative h-32 bg-gray-100 top-0 left-0">
                     <img src="./images/entel-chile-original.png" alt="Imagen de Entel PCS Chile Logo"
-                      class="absolute object-contain w-full h-full top-0 left-0" />
+                      class="absolute object-contain object-left w-full h-full top-0 left-0" />
                   </div>
-                  <h2 class="text-lg md:text-xl my-2">
-                    ENTEL Chile
-                  </h2>
-                  <h1 class="text-2xl md:text-3xl font-bold mb-4">
-                    Fullstack Developer
-                  </h1>
-                  <p class="text-xs md:text-base mb-4">
-                    Empresa líder en tele - comunicaciones
-                  </p>
+                  
+                  <div class="min-h-[2.1875rem] md:min-h-[2.375rem] lg:min-h-[2.1875rem] pt-4">
+                    <h2 class="text-lg md:text-xl lg:text-lg line-clamp-1">
+                      ENTEL Chile
+                    </h2>
+                  </div>
+                  <div class="flex items-center min-h-[4.5rem] md:min-h-[5.625rem] lg:min-h-[4.5rem] xl:min-h-[5.625rem] my-1">
+                    <h1 class="text-2xl md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold tracking-normal line-clamp-2">
+                      Fullstack Developer
+                    </h1>
+                  </div>
+                  <div class="min-h-[4.5rem]">
+                    <p class="text-base mb-4 line-clamp-3">
+                      Empresa líder en tele - comunicaciones
+                    </p>
+                  </div>
+                  
                 </div>
               </a>
             </div>
             <div class="w-1/2 md:w-1/2 px-2 md:px-4 pb-4 md:pb-0">
-              <a href="#proyectos">
+              <div>
                 <div class="mb-8">
-                  <div class="w-1/2 md:w-1/2 relative pb-[50%] md:pb-[50%] bg-gray-100">
-                    <img alt="Imagen de computadora codeando" src="./images/coding-animate.gif"
-                      alt="Imagen de Entel PCS Chile Logo" class="absolute object-contain w-full h-full top-0 left-0" />
+                  <div class="w-full md:w-1/2 lg:w-full relative h-32 bg-gray-100 top-0 left-0">
+                    <img src="./images/coding-animate.gif" alt="Imagen de computadora gif"
+                      class="absolute object-contain object-left w-full h-full top-0 left-0" />
                   </div>
-                  <h2 class="text-lg md:text-xl my-2">
-                    Formación Continua
-                  </h2>
-                  <h1 class="text-2xl md:text-3xl font-bold mb-4">
-                    Proyectos Personales
-                  </h1>
-                  <p class="text-xs md:text-base mb-4">
-                    Del concepto al código con tecnologías modernas
-                  </p>
+                  
+                  <div class="min-h-[2.1875rem] md:min-h-[2.375rem] lg:min-h-[2.1875rem] pt-4">
+                    <h2 class="text-lg md:text-xl lg:text-lg line-clamp-1">
+                      Formación Continua
+                    </h2>
+                  </div>
+                  <div class="flex items-center min-h-[4.5rem] md:min-h-[5.625rem] lg:min-h-[4.5rem] xl:min-h-[5.625rem] my-1">
+                    <h1 class="text-2xl md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold tracking-normal line-clamp-2">
+                      Proyectos Propios
+                    </h1>
+                  </div>
+                  <div class="min-h-[4.5rem]">
+                    <p class="text-base mb-4 line-clamp-4">
+                      Del concepto al código con tecnologías modernas
+                    </p>
+                  </div>
+
+
+
                 </div>
-              </a>
+              </div>
               <!-- ... otras experiencias ... -->
             </div>
           </div>
@@ -381,51 +397,85 @@ seccion proyectos
         </div>
       </div>
       <div class="flex flex-wrap md:flex-row bg-gray-100 justify-between">
-        <div class="sm:w-full md:w-2/3 lg:w-full px-4">
+        <div class="sm:w-full md:w-2/3 lg:w-full px-4 lg:px-0">
           <a href="./projects.html">
             <h2 class="text-3xl font-bold orbitron mb-8 pl-2">
               PROYECTOS
             </h2>
           </a>
-          <div class="flex flex-wrap"> <!-- Añade flex-wrap para permitir el ajuste de elementos -->
+          <div class="flex flex-wrap">
             <div class="w-1/2 md:w-1/2 px-2 md:pr-4 pb-4 md:pb-0">
-              <!-- Usa w-full para móviles y md:w-1/2 para pantallas medianas y mayores -->
-              <!-- Aqui se agregan más proyectos, columna izquierda -->
-              <div class="mb-8">
-                <img alt="imagen landing page de esta pagina web personal"
-                  class="object-cover w-full h-[13vh] md:h-[17vh] lg:h-[22vh] xl:h-[29vh] mb-2"
-                  src="./images/sitiowebpersonal.png" />
-                <h2 class="text-lg md:text-xl mb-2">
-                  2024
-                </h2>
-                <h1 class="text-2xl md:text-3xl font-bold mb-4">
-                  Sitio Web Personal
-                </h1>
-                <p class="text-xs md:text-base mb-4">
-                  HTML - TailwindCSS - CSS - JS
-                </p>
-              </div>
-              <!-- ... más proyectos ... -->
+              <!-- experiencia columna izquierda -->
+              <a href="./posts/experiencia-entel.html">
+                <div class="mb-8">
+                  <!-- Contenedor para controlar el tamaño y la respuesta de la imagen -->
+                  <div class="w-full md:w-1/2 lg:w-full relative h-32 bg-gray-100"> <!-- Ajuste aquí -->
+                    <img src="./images/sitiowebpersonal.png" alt="Imagen de Entel PCS Chile Logo"
+                      class="absolute object-cover w-full h-full top-0 left-0" />
+                  </div>
+
+
+
+                  <div class="min-h-[2.1875rem] md:min-h-[2.375rem] lg:min-h-[2.1875rem] pt-4">
+                    <h2 class="text-lg md:text-xl lg:text-lg line-clamp-1">
+                      2024
+                    </h2>
+                  </div>
+                  <div class="flex items-center min-h-[4.5rem] md:min-h-[5.625rem] lg:min-h-[4.5rem] xl:min-h-[5.625rem] my-1">
+                    <h1 class="text-2xl md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold tracking-normal line-clamp-2">
+                      Sitio Web Personal
+                    </h1>
+                  </div>
+                  <div class="min-h-[4.5rem]">
+                    <p class="text-base mb-4 line-clamp-4">
+                      HTML - TailwindCSS - CSS - JS
+                    </p>
+                  </div>
+
+
+                  
+                </div>
+              </a>
             </div>
-            <div class="w-1/2 md:w-1/2 px-2 md:pl-4"> <!-- Repite la lógica de responsive para la segunda columna -->
-              <!-- repetir este bloque para más proyectos de esta columna -->
-              <div class="md:mb-8">
-                <img alt="Placeholder image for category"
-                  class="object-cover w-full h-[13vh] md:h-[17vh] lg:h-[22vh] xl:h-[29vh] mb-2"
-                  src="./images/landing_page_TCLC.png" />
-                <h2 class="text-lg md:text-xl mb-2">
-                  Desarrollando
-                </h2>
-                <h1 class="text-2xl md:text-3xl font-bold mb-4">
-                  Proyecto Tocata Con Los Cabros
-                </h1>
-                <p class="text-xs md:text-base mb-4">
-                  REACT + Typescript + Tailwind CSS
-                </p>
-              </div>
-              <!-- ... más proyectos ... -->
+
+            <div class="w-1/2 md:w-1/2 px-2 md:pr-4 pb-4 md:pb-0">
+              <!-- experiencia columna izquierda -->
+              <a href="./posts/experiencia-entel.html">
+                <div class="mb-8">
+                  <!-- Contenedor para controlar el tamaño y la respuesta de la imagen -->
+                  <div class="w-full md:w-1/2 lg:w-full relative h-32 bg-gray-100"> <!-- Ajuste aquí -->
+                    <img src="./images/landing_page_TCLC.png" alt="Imagen de landing page de Tocata con los Cabros"
+                      class="absolute object-cover w-full h-full top-0 left-0" />
+                  </div>
+
+
+
+                  <div class="min-h-[2.1875rem] md:min-h-[2.375rem] lg:min-h-[2.1875rem] pt-4">
+                    <h2 class="text-lg md:text-xl lg:text-lg line-clamp-1">
+                      Desarrollo
+                    </h2>
+                  </div>
+                  <div class="flex items-center min-h-[4.5rem] md:min-h-[5.625rem] lg:min-h-[4.5rem] xl:min-h-[5.625rem] my-1">
+                    <h1 class="text-2xl md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold tracking-normal line-clamp-2">
+                      Proyecto Tocata Con Los Cabros
+                    </h1>
+                  </div>
+                  <div class="min-h-[4.5rem]">
+                    <p class="text-base mb-4 line-clamp-4">
+                      REACT + Typescript + Tailwind CSS
+                    </p>
+                  </div>
+
+
+                  
+                </div>
+              </a>
             </div>
+
+            
           </div>
+          
+        
 
         </div>
 
@@ -530,67 +580,84 @@ seccion blog
       </div>
      
         <div class="flex flex-wrap md:flex-row bg-gray-100 justify-between">
-        <div class="w-full px-4">
+        <div class="w-full px-4 lg:px-0">
           <h2 class="text-3xl font-bold orbitron mb-8 pl-2">
             BLOG
           </h2>
-          <div class="flex flex-wrap"> <!-- Añade flex-wrap para ajustar los elementos debajo de uno a otro -->
-            <a href="./posts/sitio-web-personal.html" class="w-full md:w-1/3 px-2 md:pr-4 pb-4 md:pb-0">
-              <!-- Ajusta para móviles y md -->
-              <!-- Aqui se agregan mas proyectos, columna izquierda -->
-              <div class="w-1/2 md:w-full">
-                <img alt="Placeholder image for category"
-                  class="object-cover w-full h-[13vh] md:h-[17vh] lg:h-[22vh] xl:h-[29vh] mb-2"
-                  src="./images/migracion.png" />
-                <h2 class="text-lg md:text-xl mb-2">
-                  29/02/2024
-                </h2>
-                <h1 class="text-2xl md:text-3xl font-bold mb-4">
-                  Finalmente: Sitio Web Personal
-                </h1>
-                <p class="text-xs md:text-base mb-4 mb-4">
-                  ¿¡Ya era hora, no!? Después de más esperas que metro en hora punta, al fin sacamos la web personal.
-                  Estoy más al día que meme viral. 💻🔥
-                </p>
-              </div>
-              <!-- ... mas proyectos ... -->
-            </a>
+          <div class="flex flex-wrap">
+            <div class="w-1/2 md:w-1/2 px-2 md:pr-4 pb-4 md:pb-0">
+              <!-- experiencia columna izquierda -->
+              <a href="./posts/experiencia-entel.html">
+                <div class="mb-8">
+                  <!-- Contenedor para controlar el tamaño y la respuesta de la imagen -->
+                  <div class="w-full md:w-1/2 lg:w-full relative h-32 bg-gray-100"> <!-- Ajuste aquí -->
+                    <img src="./images/shibagodmeta.jpg" alt="Imagen de Entel PCS Chile Logo"
+                      class="absolute object-cover w-full h-full top-0 left-0" />
+                  </div>
 
-            <!--         <div class="w-full md:w-1/3 pl-4 md:pl-4 pb-4 md:pb-0 md:visible invisible"> 
-      
-          <div class="mb-8">
-            <img alt="Placeholder image for category" class="object-cover w-full h-[30vh] mb-2"
-              src="./images/landing_page_TCLC.png" />
-            <h2 class="text-xl mb-2">
-              En desarrollo
-            </h2>
-            <h1 class="text-3xl font-bold mb-4">
-              Proyecto Tocata Con Los Cabros
-            </h1>
-            <p class="mb-4">
-              REACT + Typescript + Tailwind CSS
-            </p>
+
+
+                  <div class="min-h-[2.1875rem] md:min-h-[2.375rem] lg:min-h-[2.1875rem] pt-4">
+                    <h2 class="text-lg md:text-xl lg:text-lg line-clamp-1">
+                      29/02/2024
+                    </h2>
+                  </div>
+                  <div class="flex items-center min-h-[4.5rem] md:min-h-[5.625rem] lg:min-h-[4.5rem] xl:min-h-[5.625rem] my-1">
+                    <h1 class="text-2xl md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold tracking-normal line-clamp-2">
+                      Finalmente, Sitio Web Personal
+                    </h1>
+                  </div>
+                  <div class="min-h-[4.5rem]">
+                    <p class="text-base mb-4 line-clamp-4">
+                      ¿¡Ya era hora, no!? All fin sacamos la web personal.
+                      <br>💻🔥
+                    </p>
+                  </div>
+
+
+                  
+                </div>
+              </a>
+            </div>
+
+            <div class="w-1/2 md:w-1/2 px-2 md:pr-4 pb-4 md:pb-0">
+              <!-- experiencia columna izquierda -->
+              <a href="./posts/experiencia-entel.html">
+                <div class="mb-8">
+                  <!-- Contenedor para controlar el tamaño y la respuesta de la imagen -->
+                  <div class="w-full md:w-1/2 lg:w-full relative h-32 bg-gray-100"> <!-- Ajuste aquí -->
+                    <img src="./images/tailwind css.png" alt="Imagen de landing page de Tocata con los Cabros"
+                      class="absolute object-cover w-full h-full top-0 left-0" />
+                  </div>
+
+
+
+                  <div class="min-h-[2.1875rem] md:min-h-[2.375rem] lg:min-h-[2.1875rem] pt-4">
+                    <h2 class="text-lg md:text-xl lg:text-lg line-clamp-1">
+                      22/03/2024
+                    </h2>
+                  </div>
+                  <div class="flex items-center min-h-[4.5rem] md:min-h-[5.625rem] lg:min-h-[4.5rem] xl:min-h-[5.625rem] my-1">
+                    <h1 class="text-2xl md:text-3xl lg:text-xl xl:text-2xl 2xl:text-3xl font-bold tracking-normal line-clamp-2">
+                      ¿Qué es Tailwind CSS?
+                    </h1>
+                  </div>
+                  <div class="min-h-[4.5rem]">
+                    <p class="text-base mb-4 line-clamp-4">
+                      Explicación express del porqué te conviene Tailwind CSS
+                    </p>
+                  </div>
+
+
+                  
+                </div>
+              </a>
+            </div>
+
+            
           </div>
 
-        </div>
-        <div class="w-full md:w-1/3 pl-4 md:pl-4 pb-4 md:pb-0 md:visible invisible"> 
-        
-          <div class="mb-8">
-            <img alt="Placeholder image for category" class="object-cover w-full h-[30vh] mb-2"
-              src="./images/landing_page_TCLC.png" />
-            <h2 class="text-xl mb-2">
-              En desarrollo
-            </h2>
-            <h1 class="text-3xl font-bold mb-4">
-              Proyecto Tocata Con Los Cabros
-            </h1>
-            <p class="mb-4">
-              REACT + Typescript + Tailwind CSS
-            </p>
-          </div>
           
-        </div> -->
-          </div>
         </div>
       </div>
     </div>
