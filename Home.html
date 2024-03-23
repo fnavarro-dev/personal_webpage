@@ -179,49 +179,35 @@ navbar y titulo
 
 
 <script>
-  //este script mejora el rendimiento y solo renderiza un solo widget
+ function toggleAbout(aboutId, iconId, displayStyle = 'block') {
+  const aboutElement = document.getElementById(aboutId);
+  const iconElement = document.getElementById(iconId);
+
+  const isShowing = aboutElement.classList.contains('show');
+
+  if (isShowing) {
+    aboutElement.classList.remove('show');
+    setTimeout(() => {
+      aboutElement.style.display = 'none';
+      iconElement.style.display = displayStyle; // 'block' para mobile, 'flex' para desktop
+    }, 500); // Tiempo de transición CSS
+  } else {
+    aboutElement.style.display = displayStyle;
+    iconElement.style.display = 'none';
+    setTimeout(() => aboutElement.classList.add('show'), 10);
+  }
+}
+
+// Uso para móvil
 function toggleMobileAbout() {
-  var mobileAbout = document.getElementById("mobileAbout");
-  var profileIcon = document.getElementById("profileIcon");
-
-  if (mobileAbout.classList.contains("show")) {
-    // Iniciar transición de ocultar
-    mobileAbout.classList.remove("show");
-    // Esperar a que la transición termine para ocultar completamente y luego mostrar el ícono
-    setTimeout(() => {
-      mobileAbout.style.display = "none";
-      profileIcon.style.display = "block"; // Mover esto dentro del setTimeout
-    }, 500); // Asegúrate de que este tiempo coincida con tu transición CSS.
-  } else {
-    // Preparar y mostrar
-    mobileAbout.style.display = "block";
-    profileIcon.style.display = "none";
-    setTimeout(() => {
-      mobileAbout.classList.add("show");
-    }, 10); // Pequeño delay para asegurar que la transición se aplique correctamente
-  }
+  toggleAbout('mobileAbout', 'profileIcon');
 }
 
-
+// Uso para desktop
 function toggleDesktopAbout() {
-  var desktopAbout = document.getElementById("desktopAbout");
-  var profileIconDesktop = document.getElementById("profileIconDesktop");
-
-  if (desktopAbout.classList.contains("show")) {
-    desktopAbout.classList.remove("show");
-    // Esperar a que la transición termine para ocultar completamente y luego mostrar el ícono
-    setTimeout(() => {
-      desktopAbout.style.display = "none";
-      profileIconDesktop.style.display = "flex"; // Mover esto dentro del setTimeout
-    }, 500); // Asegura que este sea el display correcto y sincronizado con el fin de la animación
-  } else {
-    desktopAbout.style.display = "flex";
-    profileIconDesktop.style.display = "none";
-    setTimeout(() => {
-      desktopAbout.classList.add("show");
-    }, 10); // Pequeño delay para asegurar que la transición se aplique correctamente
-  }
+  toggleAbout('desktopAbout', 'profileIconDesktop', 'flex');
 }
+
   </script>
 
 <!-- Finaliza sección About Me -->
@@ -242,13 +228,13 @@ seccion experiencia
   <!-- Contenido de Experiencia -->
     
 <div class="bg-gray-100 container mx-auto md:mt-8 bg-white text-black">
-  <div id="soundCloudPlayerContainerMobile" class="bg-gray-100 pb-8 sm:block md:hidden lg:block transition-transform duration-300 ease-in-out transform hover:scale-105">
+  <div id="soundCloudPlayerContainerMobile" class="bg-gray-100 pb-8 block md:hidden lg:block  transform  w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;" >
     
-    <!-- <iframe class="w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;"
+<!--    <iframe class="w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;"
           src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&amp;color=%23ff5500&amp;auto_play=false&amp;sharing=false&amp;show_user=true&amp;visual=true">
-        </iframe> -->
+        </iframe>  -->
       </div>
-      <div class="bg-gray-100 flex flex-wrap md:flex-row justify-between sm:pt-0 md:pt-8 lg:pt-0">
+      <div class="bg-gray-100 flex flex-wrap md:flex-row justify-between pt-8">
 
         <div class="sm:w-full md:w-2/3 lg:w-full px-4 lg:px-0">
 
@@ -322,9 +308,11 @@ seccion experiencia
         </div>
         <!-- Reproductor SoundCloud para desktop a la derecha -->
 
-        <div id="soundCloudPlayerContainerDesktop" class="sm:hidden md:block lg:hidden w-1/3 mr-4 md:mr-0 hover:scale-105 transition-transform duration-300 ease-in-out transform hover:scale-105">
+        <div  class="hidden md:block lg:hidden w-1/3 mr-4 md:mr-0 hover:scale-105 transition-transform duration-300 ease-in-out transform hover:scale-105 ">
           <h2 class="text-3xl font-bold orbitron mb-8 invisible">.</h2>
           <div  class="mb-8">
+            <div id="soundCloudPlayerContainerDesktop" class="hidden md:block lg:hidden w-full h-80" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black; color: white; position: relative;">
+            </div>
 <!--             <iframe class="w-full h-80" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;"
               src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&amp;color=%23ff5500&amp;auto_play=false&amp;sharing=false&amp;show_user=true&amp;visual=true">
             </iframe> -->
@@ -335,50 +323,33 @@ seccion experiencia
     </div>
 
     <script>
-  document.addEventListener("DOMContentLoaded", loadSoundCloudWidget);
-window.addEventListener("resize", debounce(loadSoundCloudWidget, 250));
-
-function loadSoundCloudWidget() {
-    const mobileContainer = document.getElementById('soundCloudPlayerContainerMobile');
-    const desktopContainer = document.getElementById('soundCloudPlayerContainerDesktop');
-
-    // Asegúrate de limpiar el contenido anterior antes de insertar el nuevo iframe
-    mobileContainer.innerHTML = '';
-    desktopContainer.innerHTML = '';
-
-    const src = "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&color=%23ff5500&auto_play=false&sharing=false&show_user=true&visual=true";
-    let iframeHTML = `<iframe style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;" src="${src}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-
-    const mobileStyle = window.getComputedStyle(mobileContainer);
-    const desktopStyle = window.getComputedStyle(desktopContainer);
-
-    if (mobileStyle.display !== 'none') {
-        iframeHTML = iframeHTML.replace('src="', 'class="w-full h-20" src="');
-        mobileContainer.innerHTML = iframeHTML;
-    } else if (desktopStyle.display !== 'none') {
-        iframeHTML = iframeHTML.replace('src="', 'class="w-full h-80" src="');
-        desktopContainer.innerHTML = iframeHTML;
-    }
-}
-
-// Función de debounce para limitar la frecuencia de ejecución
-function debounce(func, wait, immediate) {
-    var timeout;
-    return function() {
-        var context = this, args = arguments;
-        var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-        };
-        var callNow = immediate && !timeout;
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) func.apply(context, args);
-    };
-}
-
-
+      document.addEventListener("DOMContentLoaded", loadSoundCloudWidget);
+      
+      function loadSoundCloudWidget() {
+          const mobileContainer = document.getElementById('soundCloudPlayerContainerMobile');
+          const desktopContainer = document.getElementById('soundCloudPlayerContainerDesktop');
+      
+          // Determina el contenedor activo basado en la visibilidad
+          const activeContainer = window.getComputedStyle(mobileContainer).display !== 'none' ? mobileContainer : desktopContainer;
+          const isActiveMobile = activeContainer === mobileContainer;
+          
+          const iframeHTML = `<iframe src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&color=%23ff5500&auto_play=false&sharing=false&show_user=true&visual=true" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full ${isActiveMobile ? 'h-20' : 'h-80'}"></iframe>`;
+    
+          // Limpia y establece el contenido del contenedor activo
+          activeContainer.innerHTML = iframeHTML;
+          addReloadIcon(isActiveMobile ? desktopContainer : mobileContainer); // Añade el icono de recarga al contenedor inactivo
+      }
+      
+      function addReloadIcon(container) {
+          container.innerHTML = `<div style="justify-content: center; align-items: center; display: flex; height: 100%; width: 100%;">
+            <svg id="reloadWidgetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50" style="cursor: pointer; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+          </div>`;
+          document.getElementById('reloadWidgetIcon').addEventListener('click', () => window.location.reload());
+      }
     </script>
+    
+      
+      
 
 
   </div>
@@ -391,7 +362,7 @@ seccion proyectos
   <!-- Contenido de Proyectos -->
 
     <div class="bg-gray-100 container mx-auto mt-8 bg-white text-black" id="proyectos">
-      <div class="sm:block md:hidden lg:block pb-8 bg-gray-100 transition-transform duration-300 ease-in-out transform hover:scale-105">
+      <div class="sm:block md:hidden lg:block pb-8 bg-gray-100 ">
         <div class="bg-gray-100 w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;">
           <div id="playerMobile" class="sm:block md:hidden lg:block" style="width: 100%; height: 100%;"></div>
         </div>
@@ -479,92 +450,77 @@ seccion proyectos
 
         </div>
 
-        <div class="hidden md:block lg:hidden w-1/3  mr-4 md:mr-0 transition-transform duration-300 ease-in-out transform hover:scale-105">
-          <h2 class="text-3xl font-bold orbitron mb-8 invisible">
-            .
-          </h2>
-          <div class=" w-full h-80" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;">
-            <div id="playerDesktop" class="hidden md:block lg:hidden" style="width: 100%; height: 100%;"></div>
-
-            <script>
-              var playerMobile, playerDesktop;
-              // Cargar la API IFrame Player API asincrónicamente.
-              var tag = document.createElement('script');
-              tag.src = "https://www.youtube.com/iframe_api";
-              var firstScriptTag = document.getElementsByTagName('script')[0];
-              firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-            
-              // Cuando la API esté lista, llama a la función para configurar el reproductor.
-              function onYouTubeIframeAPIReady() {
-                loadYouTubePlayer();
-              }
-            
-              // Verifica la visibilidad y carga el reproductor de YouTube correspondiente
-              function loadYouTubePlayer() {
-                var mobileContainer = document.getElementById("playerMobile");
-                var desktopContainer = document.getElementById("playerDesktop");
-            
-                // Limpiar reproductores existentes si están definidos
-                if (playerMobile) {
-                  playerMobile.destroy();
-                }
-                if (playerDesktop) {
-                  playerDesktop.destroy();
-                }
-            
-                var mobileStyle = window.getComputedStyle(mobileContainer);
-                var desktopStyle = window.getComputedStyle(desktopContainer);
-            
-                if (mobileStyle.display !== 'none') {
-                  // Cargar en móvil
-                  playerMobile = new YT.Player('playerMobile', {
-                    height: '100%',
-                    width: '100%',
-                    videoId: 'AO8_SVbEdwM',
-                    events: {
-                      'onReady': onPlayerReady
-                    }
-                  });
-                } else if (desktopStyle.display !== 'none') {
-                  // Cargar en desktop
-                  playerDesktop = new YT.Player('playerDesktop', {
-                    height: '100%',
-                    width: '100%',
-                    videoId: 'AO8_SVbEdwM',
-                    events: {
-                      'onReady': onPlayerReady
-                    }
-                  });
-                }
-              }
-            
-              // La API llamará a esta función cuando el reproductor de video esté listo.
-              function onPlayerReady(event) {
-                event.target.setVolume(20); // Set volume to 20%
-              }
-            
-              // Debounce function
-              function debounce(func, wait, immediate) {
-                var timeout;
-                return function() {
-                  var context = this, args = arguments;
-                  clearTimeout(timeout);
-                  timeout = setTimeout(function() {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                  }, wait);
-                  if (immediate && !timeout) func.apply(context, args);
-                };
-              }
-            
-              // Manejar el cambio de tamaño de la ventana
-              window.addEventListener("resize", debounce(loadYouTubePlayer, 250));
-            </script>
-            
+        <div  class="hidden md:block lg:hidden w-1/3 mr-4 md:mr-0 hover:scale-105 transition-transform duration-300 ease-in-out transform hover:scale-105 ">
+          <h2 class="text-3xl font-bold orbitron mb-8 invisible">.</h2>
+          <div  class="mb-8">
+            <div id="playerDesktop" class="hidden md:block lg:hidden w-full h-80" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black; color: white; position: relative;">
+            </div>
+     
           </div>
         </div>
+
+  
+        
+        
       </div>
     </div>
+    <script>
+      function addRefreshIcon(container) {
+        container.style.justifyContent = 'center'; // Centra horizontalmente
+        container.style.alignItems = 'center'; // Centra verticalmente
+    
+        const refreshIcon = `<svg id="reloadWidgetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50" style="cursor: pointer; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>`;
+        container.innerHTML = refreshIcon;
+        container.querySelector('#reloadWidgetIcon').addEventListener('click', function() {
+          window.location.reload();
+        });
+      }
+    
+      let playerMobile, playerDesktop;
+    
+      // Cargar la API de YouTube IFrame Player de forma asincrónica.
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+      window.onYouTubeIframeAPIReady = () => {
+        const mobileContainer = document.getElementById("playerMobile");
+        const desktopContainer = document.getElementById("playerDesktop");
+    
+        // Limpia los contenedores
+        mobileContainer.innerHTML = '';
+        desktopContainer.innerHTML = '';
+    
+        // Destruye los reproductores existentes si están definidos
+        playerMobile?.destroy();
+        playerDesktop?.destroy();
+    
+        const mobileStyleYT = window.getComputedStyle(mobileContainer);
+        const desktopStyleYT = window.getComputedStyle(desktopContainer);
+    
+        // Carga el reproductor según la visibilidad y añade el icono de refresco
+        if (mobileStyleYT.display !== 'none') {
+          playerMobile = createPlayer('playerMobile', 'AO8_SVbEdwM');
+          addRefreshIcon(desktopContainer);
+        } else {
+          playerDesktop = createPlayer('playerDesktop', 'AO8_SVbEdwM');
+          addRefreshIcon(mobileContainer);
+        }
+      };
+    
+      function createPlayer(containerId, videoId) {
+        return new YT.Player(containerId, {
+          height: '100%',
+          width: '100%',
+          videoId: videoId,
+          events: {
+            'onReady': event => event.target.setVolume(20)
+          }
+        });
+      }
+    </script>
+    
   </div>
     <!-- ----------------------------------------------------------------
 seccion blog 
@@ -573,7 +529,7 @@ seccion blog
   <!-- Contenido de Blog -->
 
     <div class="bg-gray-100 container mx-auto mt-8 bg-white text-black">
-      <div class="sm:block md:hidden lg:block pb-8 bg-gray-100 transition-transform duration-300 ease-in-out transform hover:scale-105">
+      <div class="sm:block md:hidden lg:block pb-8 bg-gray-100 ">
         <div class="bg-gray-100 w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;">
           <img src="./images/matrix_big.gif" class="object-cover w-full h-full"></img>
         </div>

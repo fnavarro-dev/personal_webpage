@@ -35,7 +35,7 @@ html {
 #mobileAbout, #desktopAbout {
     transition: opacity 0.5s, max-height 0.5s ease;
     overflow: hidden;
-    max-height: 0; /* Empieza en 0 para asegurarse de que esté oculto inicialmente. */
+    max-height: 40px; /* Empieza en 0 para asegurarse de que esté oculto inicialmente. */
     opacity: 0;
     display: none;
   }
