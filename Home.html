@@ -228,7 +228,7 @@ seccion experiencia
   <!-- Contenido de Experiencia -->
     
 <div class="bg-gray-100 container mx-auto md:mt-8 bg-white text-black">
-  <div id="soundCloudPlayerContainerMobile" class="bg-gray-100 pb-8 block md:hidden lg:block  transform  w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;" >
+  <div id="soundCloudPlayerContainerMobile" class="bg-gray-100 block md:hidden lg:block  transform  w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;" >
     
 <!--    <iframe class="w-full h-20" style="box-shadow: 0 8px 8px -4px black, 0 -8px 8px -4px black;"
           src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&amp;color=%23ff5500&amp;auto_play=false&amp;sharing=false&amp;show_user=true&amp;visual=true">
@@ -333,7 +333,7 @@ seccion experiencia
           const activeContainer = window.getComputedStyle(mobileContainer).display !== 'none' ? mobileContainer : desktopContainer;
           const isActiveMobile = activeContainer === mobileContainer;
           
-          const iframeHTML = `<iframe src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&color=%23ff5500&auto_play=false&sharing=false&show_user=true&visual=true" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full ${isActiveMobile ? 'h-20' : 'h-80'}"></iframe>`;
+          const iframeHTML = `<iframe src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/panchonavarrof/sets/personal-webpage-soundtrack&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=false&amp;sharing=false&amp;visual=true" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="w-full ${isActiveMobile ? 'h-20' : 'h-80'}"></iframe>`;
     
           // Limpia y establece el contenido del contenedor activo
           activeContainer.innerHTML = iframeHTML;
@@ -341,11 +341,15 @@ seccion experiencia
       }
       
       function addReloadIcon(container) {
-          container.innerHTML = `<div style="justify-content: center; align-items: center; display: flex; height: 100%; width: 100%;">
-            <svg id="reloadWidgetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50" style="cursor: pointer; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
-          </div>`;
-          document.getElementById('reloadWidgetIcon').addEventListener('click', () => window.location.reload());
-      }
+    // Primero, se agrega un contenedor para la imagen de fondo y el SVG.
+    container.innerHTML = `<div style="position: relative; display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+        <img src="./images/loader1.jpg" alt="Fondo" style="position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <svg id="reloadWidgetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50" style="cursor: pointer; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+    </div>`;
+    // Se añade el evento para recargar la página al hacer clic en el SVG.
+    document.getElementById('reloadWidgetIcon').addEventListener('click', () => window.location.reload());
+}
+
     </script>
     
       
@@ -465,16 +469,19 @@ seccion proyectos
       </div>
     </div>
     <script>
+      
+
       function addRefreshIcon(container) {
-        container.style.justifyContent = 'center'; // Centra horizontalmente
-        container.style.alignItems = 'center'; // Centra verticalmente
-    
-        const refreshIcon = `<svg id="reloadWidgetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50" style="cursor: pointer; position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%);"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>`;
-        container.innerHTML = refreshIcon;
-        container.querySelector('#reloadWidgetIcon').addEventListener('click', function() {
+    // Primero, se agrega un contenedor para la imagen de fondo y el SVG.
+    container.innerHTML = `<div style="position: relative; display: flex; justify-content: center; align-items: center; height: 100%; width: 100%;">
+        <img src="./images/loader2.jpg" alt="Fondo" style="position: absolute; width: 100%; height: 100%; object-fit: cover; ">
+        <svg id="reloadWidgetIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="50" height="50" style="cursor: pointer; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1;"><path d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"/></svg>
+    </div>`;
+    container.querySelector('#reloadWidgetIcon').addEventListener('click', function() {
           window.location.reload();
         });
-      }
+}
+
     
       let playerMobile, playerDesktop;
     
