@@ -35,6 +35,9 @@
 
     body {
 
+      margin: 0 !important;
+      padding: 0 !important;
+
       font-family: 'Roboto', sans-serif;
       letter-spacing: 0.05em;
     }
@@ -42,6 +45,10 @@
     .orbitron {
       font-family: 'Orbitron', sans-serif;
     }
+
+    .roboto {
+    font-family: 'Roboto', sans-serif;
+}
 
     /* clases para el color de los iconos, tailwind css no afecta a propiedades fill de un svg, funciona mejor con texto */
     .svg-icon svg {
@@ -64,12 +71,12 @@ navbar y titulo
 
 
 <body class="bg-gray-100 text-black overflow-y-scroll">
-  <header class="bg-black text-white border-b border-gray-800">
+  <header class="bg-black text-white  border-gray-800">
 
     <div class="flex justify-center items-center w-full py-2">
-      <div class="text-3xl md:text-4xl font-bold orbitron text-center">
-        <a href="./home.html">NAVARRO DEVELOPMENT BLOG</a>
-        <p class="text-xl text-gray-400">Desarrollador FullStack</p>
+      <div class="text-4xl font-bold orbitron text-center px-4">
+        <a class="hover:text-gray-300" href="./home.html">NAVARRO DEV BLOG</a>
+        <p class="text-xl text-gray-400 roboto" style="font-weight: 400;">Desarrollador FullStack</p>
       </div>
     </div>
     </div>
@@ -78,7 +85,7 @@ navbar y titulo
 
     <!-- Iconos sociales -->
     <div class="flex justify-center items-center w-full">
-      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-3 md:px-2"
+      <a class="svg-icon text-lg hover:text-gray-300 transition-transform duration-300 ease-in-out transform hover:scale-105 px-4"
         href="https://www.linkedin.com/in/francisconavarroflores/" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="width: 1.150rem; height: 1.150rem;">
           <path
@@ -87,7 +94,7 @@ navbar y titulo
       </a>
 
 
-      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-3 md:px-2"
+      <a class="svg-icon text-lg hover:text-gray-300 transition-transform duration-300 ease-in-out transform hover:scale-105 px-4"
         href="https://github.com/fnavarro-dev" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" style="width: 1.150rem; height: 1.150rem;">
           <path
@@ -95,7 +102,7 @@ navbar y titulo
         </svg>
       </a>
 
-      <a class="svg-icon text-lg hover:text-gray-300 transform hover:scale-110 transition duration-300 ease-in-out px-3 md:px-2"
+      <a class="svg-icon text-lg hover:text-gray-300 transition-transform duration-300 ease-in-out transform hover:scale-105 px-4"
         href="mailto:francisconavarroflores@gmail.com">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 1.150rem; height: 1.150rem;">
           <path
@@ -104,25 +111,31 @@ navbar y titulo
       </a>
     </div>
 
-<!-- Menu Links -->
-<nav class="container mx-auto flex-wrap justify-between items-center py-3 border-b border-gray-700">
-  <!-- Botón visible solo en móvil -->
-  <button class="flex items-center justify-center w-full px-4 py-2 hover:text-yellow-200 transition duration-300 ease-in-out md:hidden" id="menu-btn">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 1.150rem; height: 1.150rem;">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-  </button>
-  
+    <!-- Menu Links -->
+    <!-- Version Escritorio y Movil-->
+    <nav class="w-full mx-auto max-w-full flex-wrap justify-between items-center py-4  border-white">
+      <!-- Botón visible solo en móvil -->
+      <button
+        class="flex items-center justify-center w-full px-4 py-2 hover:text-gray-300 transition-transform duration-300 ease-in-out transform  md:hidden"
+        id="menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          style="width: 1.150rem; height: 1.150rem;">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
       <!-- Enlaces del menú -->
       <!-- En móviles se oculta, y en escritorio se muestra -->
       <div class="hidden md:flex w-full justify-center pb-2" id="menu-links">
-        <a class="block text-center text-white hover:text-black px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-yellow-100 "
+        <a class="block text-center text-white hover:text-black px-6 py-4 transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold hover:bg-yellow-100 border-b-4 border-transparent"
    href="./home.html">Inicio</a>
-        <a class="block text-center text-white hover:text-black px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-yellow-100"
+        <a class="block text-center text-white hover:text-black px-6 py-4 transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold hover:bg-yellow-100 border-b-4 border-transparent"
           href="./resume.html">Contacto y CV</a>
-          <a class="block text-center text-white hover:text-black px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-yellow-100 border-b-4 border-yellow-100"
+          <a class="block text-center text-white hover:text-black px-6 py-4 transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold hover:bg-yellow-100 border-b-4 border-yellow-100"
           href="./projects.html">Proyectos</a>
-          <a class="block text-center text-white hover:text-black px-4 py-2 transition duration-300 ease-in-out font-bold hover:bg-yellow-100"
+          <a class="block text-center text-white hover:text-black px-6 py-4 transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold hover:bg-yellow-100 border-b-4 border-transparent"
+   href="./posts/all.html">Blog</a>
+          <a class="block text-center text-white hover:text-black px-6 py-4 transition-transform duration-300 ease-in-out transform hover:scale-105 font-bold hover:bg-yellow-100 border-b-4 border-transparent"
           href="./inspiracion.html">Inspiración</a>
       </div>
     </nav>
@@ -140,17 +153,17 @@ navbar y titulo
     <!-- ----------------------------------------------------------------
 seccion proyectos 
 ---------------------------------------------------------------- -->
-<main class=" sm:px-16 md:px-24  xl:px-48 2xl:px-64">
+<main class=" sm:px-16 md:px-24  xl:px-56">
     <div class="bg-gray-100 container mx-auto mt-8 bg-white text-black">
       <div class="bg-gray-100 flex justify-between">
         <div>
           
-          <h2 class="text-3xl font-bold orbitron mb-8 pl-4">
+          <h2 class="text-3xl font-bold orbitron mb-8 ">
             PROYECTOS
           </h2>
           
           <div class="flex flex-wrap">
-            <div class="w-full md:w-1/3 px-4 mb-8">
+            <div class="w-full md:w-1/3  mb-8">
               <!-- Proyecto 1 -->
               <div>
                 <img alt="imagen landing page de esta pagina web personal" class="object-cover w-full h-[30vh] mb-2"
